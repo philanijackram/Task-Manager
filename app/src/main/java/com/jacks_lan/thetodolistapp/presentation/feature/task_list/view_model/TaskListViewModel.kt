@@ -33,9 +33,7 @@ class TaskListViewModel @Inject constructor(
 
 
     init {
-        viewModelScope.launch {
-            onEvent(TaskListEvent.LoadTasks)
-        }
+        onEvent(TaskListEvent.LoadTasks)
     }
 
     fun getAllTasks() {
@@ -43,7 +41,7 @@ class TaskListViewModel @Inject constructor(
             uiState = uiState.copy(isLoading = true)
             delay(100)
             getAllTasksUseCase().collect { taskList ->
-                uiState = uiState.copy(tasks = emptyList(), isLoading = false)
+                uiState = uiState.copy(tasks = taskList, isLoading = false)
             }
         }
     }
@@ -55,22 +53,22 @@ class TaskListViewModel @Inject constructor(
         }
     }
 
-    suspend fun onEvent(event: TaskListEvent) {
+    fun onEvent(event: TaskListEvent) {
         when (event) {
-           is TaskListEvent.LoadTasks -> getAllTasks()
+            is TaskListEvent.LoadTasks -> getAllTasks()
             is TaskListEvent.OnDeleteTaskClick -> deleteTask(event.taskId)
             is TaskListEvent.OnTaskClick -> navigateToDetailScreen()
             is TaskListEvent.OnAddTaskClick -> navigateToCreateScreen()
         }
     }
 
-    fun navigateToDetailScreen(){
+    fun navigateToDetailScreen() {
         viewModelScope.launch {
             _effect.emit(TaskListEffect.NavigateToTaskDetail(1))
         }
     }
 
-    fun navigateToCreateScreen(){
+    fun navigateToCreateScreen() {
         viewModelScope.launch {
             _effect.emit(TaskListEffect.NavigateToAddTask)
         }

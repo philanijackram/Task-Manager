@@ -22,7 +22,7 @@ fun AppNavGraph(
         composable(route = Screen.TaskListScreen.route) {
             TaskListScreen(
                 onCardClick = { taskId ->
-                    navController.navigate(Screen.TaskDetailScreen.route + "/$taskId")
+                    navController.navigate(Screen.TaskDetailScreen.passId(taskId))
                 },
                 onFabClick = {
                     navController.navigate(Screen.CreateTaskScreen.route)
@@ -50,7 +50,8 @@ fun AppNavGraph(
                 onBackArrowClick = { navController.popBackStack() }
             ) { paddingValues ->
                 CreateTaskScreen(
-                    modifier = Modifier.padding(paddingValues)
+                    modifier = Modifier.padding(paddingValues),
+                    onNavigateBack = { navController.popBackStack() }
                 )
             }
         }

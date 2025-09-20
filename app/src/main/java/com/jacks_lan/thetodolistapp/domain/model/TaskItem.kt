@@ -3,7 +3,7 @@ package com.jacks_lan.thetodolistapp.domain.model
 import com.jacks_lan.thetodolistapp.data.local.entity.TaskItemEntity
 
 data class TaskItem(
-    val id: Int,
+    val id: Int = 0,
     val title: String,
     val description: String,
     val image: String? = null,
