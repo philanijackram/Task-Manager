@@ -39,7 +39,7 @@ class TaskListViewModel @Inject constructor(
     fun getAllTasks() {
         viewModelScope.launch {
             uiState = uiState.copy(isLoading = true)
-            delay(100)
+            delay(1000)
             getAllTasksUseCase().collect { taskList ->
                 uiState = uiState.copy(tasks = taskList, isLoading = false)
             }
