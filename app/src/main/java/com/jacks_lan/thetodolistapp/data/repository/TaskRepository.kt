@@ -1,7 +1,6 @@
 package com.jacks_lan.thetodolistapp.data.repository
 
 import com.jacks_lan.thetodolistapp.data.local.entity.TaskItemEntity
-import com.jacks_lan.thetodolistapp.domain.model.TaskItem
 import kotlinx.coroutines.flow.Flow
 
 interface TaskRepository {
