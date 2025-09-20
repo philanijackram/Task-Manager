@@ -1,4 +1,4 @@
-# 📝 The To-Do List App
+# 📝 The Task Manager App
 
 A modern **To-Do List application** built with **Jetpack Compose** and **Clean Architecture**, featuring full CRUD (Create, Read, Update, Delete) functionality with local persistence using **Room**.  
 
