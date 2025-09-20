@@ -4,7 +4,7 @@ data class TaskItem(
     val id: Int,
     val title: String,
     val description: String,
-    val image: String?,
+    val image: String? = null,
     val dueDate: String,
-    val items: List<String>
+    val items: List<String> = emptyList()
 )

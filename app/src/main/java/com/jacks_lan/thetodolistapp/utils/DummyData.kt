@@ -4,7 +4,7 @@ import com.jacks_lan.thetodolistapp.domain.model.TaskItem
 
 object DummyData {
 
-    val dummyTasks = listOf(
+    val dummyTasks = arrayListOf(
         TaskItem(
             id = 1,
             title = "Study Compose",

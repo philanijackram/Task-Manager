@@ -15,10 +15,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.jacks_lan.thetodolistapp.domain.model.TaskItem
 import com.jacks_lan.thetodolistapp.presentation.components.PrimaryButton
 import com.jacks_lan.thetodolistapp.presentation.components.SecondaryButton
 import com.jacks_lan.thetodolistapp.presentation.components.StandardDatePicker
 import com.jacks_lan.thetodolistapp.presentation.components.StandardTextField
+import com.jacks_lan.thetodolistapp.utils.DummyData.dummyTasks
 
 @Preview
 @Composable
@@ -31,15 +33,20 @@ fun CreateTaskScreen(modifier: Modifier = Modifier) {
         modifier = modifier.fillMaxSize(),
         bottomBar = {
             Column(
-                modifier = Modifier.fillMaxWidth().padding(16.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
             ) {
                 SecondaryButton(
-                    modifier=Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth(),
                     text = "Add Image"
                 )
                 PrimaryButton(
                     modifier = Modifier.fillMaxWidth(),
-                    text = "Create Task"
+                    text = "Create Task",
+                    onClick = {
+                        createTask(title.value, description.value, date.value)
+                    }
                 )
             }
         }
@@ -74,4 +81,21 @@ fun CreateTaskScreen(modifier: Modifier = Modifier) {
             }
         }
     }
+}
+
+fun createTask(title: String, description: String, date: String) {
+    if (title.isBlank() || description.isBlank() || date.isBlank()) {
+        return
+    }
+    val lastId = dummyTasks.lastOrNull()?.id ?: 0
+    val newId = lastId + 1
+
+    dummyTasks.add(
+        TaskItem(
+            id = newId,
+            title = title,
+            description = description,
+            dueDate = date
+        )
+    )
 }
