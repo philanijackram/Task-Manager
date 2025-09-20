@@ -19,7 +19,7 @@ import com.jacks_lan.thetodolistapp.utils.DummyData.dummyTasks
 
 @Composable
 fun TaskListScreen(modifier: Modifier = Modifier,navController: NavController) {
-    Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
+    Column(modifier = modifier.fillMaxSize().padding(16.dp)) {
         Text("Item List", style = MaterialTheme.typography.headlineMedium)
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -40,5 +40,4 @@ fun TaskListScreen(modifier: Modifier = Modifier,navController: NavController) {
             }
         }
     }
-
 }

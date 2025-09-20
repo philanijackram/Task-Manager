@@ -14,11 +14,13 @@ import androidx.navigation.NavBackStackEntry
 import com.jacks_lan.thetodolistapp.utils.DummyData.dummyTasks
 
 @Composable
-fun TaskDetailScreen(modifier: Modifier = Modifier,backStackEntry: NavBackStackEntry) {
+fun TaskDetailScreen(modifier: Modifier = Modifier, backStackEntry: NavBackStackEntry) {
     val itemId = backStackEntry.arguments?.getString("itemId")?.toIntOrNull()
     val item = dummyTasks.find { it.id == itemId }
 
-    Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
+    Column(modifier = modifier
+        .fillMaxSize()
+        .padding(16.dp)) {
         if (item != null) {
             Text(item.title, style = MaterialTheme.typography.headlineMedium)
             Spacer(modifier = Modifier.height(8.dp))
