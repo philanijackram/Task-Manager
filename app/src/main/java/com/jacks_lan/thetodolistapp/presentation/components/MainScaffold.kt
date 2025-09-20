@@ -14,7 +14,7 @@ import com.jacks_lan.thetodolistapp.ui.theme.TheToDoListAppTheme
 fun MainScaffold(
     onFabClick: () -> Unit = {},
     title: String = "Task Manager",
-    showBackArrow: Boolean = true,
+    showBackArrow: Boolean = false,
     onBackArrowClick: () -> Unit = {},
     content: @Composable (paddingValues: PaddingValues) -> Unit = {},
 ) {
@@ -28,6 +28,10 @@ fun MainScaffold(
             )
         },
         floatingActionButton = {
+            if (!showBackArrow) {
+                StandardFloatingActionButton(onClick = onFabClick)
+            }
+
         },
         floatingActionButtonPosition = FabPosition.End,
     ) { padding ->
