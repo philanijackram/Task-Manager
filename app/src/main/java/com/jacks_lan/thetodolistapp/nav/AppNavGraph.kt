@@ -49,7 +49,7 @@ fun AppNavGraph(
                 onBackArrowClick = { navController.popBackStack() }
             ) { paddingValues ->
                 CreateTaskScreen(
-                    modifier = Modifier.padding(paddingValues),
+                    modifier = Modifier.padding(paddingValues)
                 )
             }
         }
