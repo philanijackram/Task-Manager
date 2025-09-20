@@ -20,13 +20,14 @@ fun AppNavGraph(
         startDestination = Screen.TaskListScreen.route
     ) {
         composable(route = Screen.TaskListScreen.route) {
-            MainScaffold(
-                showBackArrow = false,
-                title = "Task Manager",
-                onFabClick = { navController.navigate(Screen.CreateTaskScreen.route) }
-            ) {
-                TaskListScreen(navController = navController)
-            }
+            TaskListScreen(
+                onCardClick = { taskId ->
+                    navController.navigate(Screen.TaskDetailScreen.route + "/$taskId")
+                },
+                onFabClick = {
+                    navController.navigate(Screen.CreateTaskScreen.route)
+                }
+            )
         }
 
         composable(route = Screen.TaskDetailScreen.route) { backStackEntry ->
