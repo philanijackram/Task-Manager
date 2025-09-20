@@ -25,6 +25,8 @@ fun TaskDetailScreen(modifier: Modifier = Modifier, backStackEntry: NavBackStack
             Text(item.title, style = MaterialTheme.typography.headlineMedium)
             Spacer(modifier = Modifier.height(8.dp))
             Text(item.description, style = MaterialTheme.typography.bodyLarge)
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(item.dueDate, style = MaterialTheme.typography.bodyLarge)
         } else {
             Text("Item not found", style = MaterialTheme.typography.bodyLarge)
         }

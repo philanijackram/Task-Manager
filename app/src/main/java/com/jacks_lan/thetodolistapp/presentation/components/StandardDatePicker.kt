@@ -2,10 +2,12 @@ package com.jacks_lan.thetodolistapp.presentation.components
 
 import android.app.DatePickerDialog
 import android.widget.DatePicker
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import java.text.SimpleDateFormat
@@ -38,6 +40,7 @@ fun StandardDatePicker(
     )
 
     OutlinedTextField(
+        modifier = Modifier.fillMaxWidth(),
         value = selectedDate,
         onValueChange = {},
         readOnly = true,
