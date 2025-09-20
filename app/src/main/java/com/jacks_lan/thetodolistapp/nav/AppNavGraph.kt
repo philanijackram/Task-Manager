@@ -22,7 +22,8 @@ fun AppNavGraph(
         composable(route = Screen.TaskListScreen.route) {
             MainScaffold(
                 showBackArrow = false,
-                title = "Task Manager"
+                title = "Task Manager",
+                onFabClick = { navController.navigate(Screen.CreateTaskScreen.route) }
             ) {
                 TaskListScreen(navController = navController)
             }
@@ -44,7 +45,8 @@ fun AppNavGraph(
         composable(route = Screen.CreateTaskScreen.route) {
             MainScaffold(
                 showBackArrow = true,
-                title = "Create Task"
+                title = "Create Task",
+                onBackArrowClick = { navController.popBackStack() }
             ) {
                 CreateTaskScreen()
             }
