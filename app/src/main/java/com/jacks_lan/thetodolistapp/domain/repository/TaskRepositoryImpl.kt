@@ -26,8 +26,7 @@ class TaskRepositoryImpl @Inject constructor(
     }
 
     override suspend fun deleteTask(taskId: Int) {
-        val task = taskDao.getTaskById(taskId)
-        taskDao.deleteTask(task)
+        taskDao.deleteTask(taskId)
     }
 
 }

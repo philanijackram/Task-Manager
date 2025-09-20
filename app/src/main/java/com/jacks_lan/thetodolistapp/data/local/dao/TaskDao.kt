@@ -20,8 +20,8 @@ interface TaskDao {
     @Update
     suspend fun updateTask(task: TaskItemEntity)
 
-    @Delete
-    suspend fun deleteTask(task: TaskItemEntity)
+    @Query("DELETE FROM tasks WHERE id = :taskId")
+    suspend fun deleteTask(taskId: Int)
 
     @Query("SELECT * FROM tasks WHERE id = :taskId")
     suspend fun getTaskById(taskId: Int): TaskItemEntity
